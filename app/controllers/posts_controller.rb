@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
 	def index
 		@posts = Post.all
 	end
@@ -25,7 +26,9 @@ class PostsController < ApplicationController
 
 	def update
 	  @post = Post.find(params[:id])
-	  @post.update(title: params[:title], description: params[:description])
-	  redirect_to post_path(@post)
+		@post.update(title: params[:post][:title], description: params[:post][:description])
+		redirect_to post_path(@post)
 	end
+
+
 end
